@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FlexBetween } from '../globals';
 
 
 export const CustomNavbar = styled.nav`
@@ -6,9 +7,7 @@ export const CustomNavbar = styled.nav`
     padding: 2rem ${props => props.theme.px};
     background: ${props => props.theme.element};
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    ${FlexBetween}
 
     box-shadow: 0 .1px .4rem rgba(0,0,0,0.15);
 

@@ -215,4 +215,9 @@ export const GlobalStyles = createGlobalStyle`
         }
     }
 
+    input,select{
+        outline: none;
+        border:0;
+    }
+
 `

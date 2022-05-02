@@ -1,5 +1,6 @@
 // import original module declarations
 import 'styled-components';
+import { breakPoints } from '../styles/themes';
 
 // and extend them!
 declare module 'styled-components' {
@@ -8,5 +9,7 @@ declare module 'styled-components' {
         text:string;
         element:string;
         px:string;
+        input:string;
+        breakPoints: typeof breakPoints
     }
 }
