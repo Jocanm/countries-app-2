@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
-// @ts-ignore
 class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
         const initialProps = await Document.getInitialProps(ctx);
@@ -11,8 +10,12 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html lang="en">
-                <Head />
+            <Html lang="es">
+                <Head>
+                    <link rel="preconnect" href="https://fonts.googleapis.com" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={undefined} />
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet" />
+                </Head>
                 <body>
                     <Main />
                     <NextScript />
