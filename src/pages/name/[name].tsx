@@ -13,11 +13,12 @@ interface Props {
 
 const CountryPage: NextPage<Props> = ({ country }) => {
 
-    const { name, population, capital, flags, region, borders } = country
+    const { name, flags } = country
 
     return (
         <MainLayout
             title={name.common}
+            favicon={flags.svg}
         >
             <ST.DetailsViewWrapper>
                 <Image
