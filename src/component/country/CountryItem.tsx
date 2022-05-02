@@ -3,6 +3,7 @@ import { CountryProps } from '../../interfaces'
 import { FC } from 'react';
 import Image from 'next/image';
 import * as ST from '../../styles/components';
+import Link from 'next/link';
 
 interface Props {
     country: CountryProps
@@ -21,10 +22,12 @@ export const CountryItem: FC<Props> = ({ country }) => {
                 height={250}
             />
             <ST.CountryInfoStyles>
-                <h2>{name.common}</h2>
+                <Link href={`/name/${name.common}`} passHref>
+                    <h2>{name.common}</h2>
+                </Link>
                 <div>
                     <p>
-                        Population: 
+                        Population:
                         <span> {new Intl.NumberFormat('de-DE').format(population)}</span>
                     </p>
                     <p>Region: <span>{region}</span></p>

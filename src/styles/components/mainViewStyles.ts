@@ -28,8 +28,7 @@ export const CountriesListStyles = styled.ul`
 
 export const CountryItemStyles = styled.li`
 
-    cursor: pointer;
-    display:flex;
+    /* display:flex; */
     flex-direction:column;
     justify-content:space-between;
     border-radius:5px;
@@ -43,6 +42,28 @@ export const CountryItemStyles = styled.li`
     img{
         border-radius:5px 5px 0 0;
         object-fit:cover;
+    }
+
+    h2{
+        cursor: pointer;
+        display:inline;
+        background-image:
+            linear-gradient(
+                transparent 0%,
+                transparent 90%,
+                #fff 90%,
+                #fff 100%
+            );
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position-x: right;
+
+        transition: background-size 500ms;
+
+        :hover{
+            background-size: 100% 100%;
+            background-position-x: left;
+        }
     }
 
     :hover{
