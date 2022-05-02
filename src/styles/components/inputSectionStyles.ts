@@ -4,8 +4,6 @@ import { FlexBetween } from '../globals';
 export const FilterSectionWrapper = styled.div`
 
     ${FlexBetween};
-    padding: 0 ${props => props.theme.px};
-    margin-top: ${props => props.theme.px};
 
     @media (max-width: ${props => props.theme.breakPoints.md}) {
         flex-direction: column;

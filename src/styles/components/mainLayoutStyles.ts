@@ -6,3 +6,9 @@ export const ContentWrapperStyles = styled.main`
     height:100vh;
 
 `
+
+export const MainWrapper = styled.main`
+
+    padding: ${props => props.theme.px} 0;
+
+`

@@ -220,4 +220,8 @@ export const GlobalStyles = createGlobalStyle`
         border:0;
     }
 
+    ul{
+        list-style: none;
+    }
+
 `

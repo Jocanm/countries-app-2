@@ -15,9 +15,9 @@ export const MainLayout: FC<Props> = ({ children, title }) => {
                 <title>{title}</title>
             </Head>
             <Navbar />
-            <main>
+            <ST.MainWrapper>
                 {children}
-            </main>
+            </ST.MainWrapper>
         </ST.ContentWrapperStyles>
     )
 }
