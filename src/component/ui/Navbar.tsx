@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { BsMoon, BsMoonFill } from 'react-icons/bs'
 import { useDarkMode } from '../../context'
@@ -11,7 +12,11 @@ export const Navbar = () => {
 
     return (
         <ST.CustomNavbar>
-            <h2>Where in the world?</h2>
+            <Link href="/" passHref>
+                <h2 style={{ cursor: "pointer" }}>
+                    Where in the world?
+                </h2>
+            </Link>
             <section onClick={toggleTheme}>
                 {
                     isDarkMode

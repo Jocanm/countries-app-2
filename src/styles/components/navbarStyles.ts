@@ -8,6 +8,14 @@ export const CustomNavbar = styled.nav`
     background: ${props => props.theme.element};
     box-shadow: 0 .1px .4rem rgba(0,0,0,0.15);
 
+    @media (min-width: ${props => props.theme.breakPoints['2xl']}) {
+        padding: 2rem 10rem;
+    }
+    
+    @media (max-width: ${props => props.theme.breakPoints.sm}) {
+        padding: 1.2rem 1.2rem;
+    }
+
     ${FlexBetween}
 
     section{
@@ -19,6 +27,28 @@ export const CustomNavbar = styled.nav`
 
     h4{
         font-weight:600;
+    }
+
+    h2{
+        cursor: pointer;
+        display:inline;
+        background-image:
+            linear-gradient(
+                transparent 0%,
+                transparent 90%,
+                #fff 90%,
+                #fff 100%
+            );
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position-x: right;
+
+        transition: background-size 500ms;
+
+        :hover{
+            background-size: 100% 100%;
+            background-position-x: left;
+        }
     }
 
 `

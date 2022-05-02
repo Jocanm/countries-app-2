@@ -16,7 +16,7 @@ const HomePage: NextPage<Props> = ({ countries }) => {
         <MainLayout title="Countries">
             <ST.IndexWrapper>
                 <FilterSection />
-                <CountriesList 
+                <CountriesList
                     countries={countries}
                 />
             </ST.IndexWrapper>
@@ -29,8 +29,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { data } = await countriesApi.get<CountryProps[]>("/region/america")
 
     const countries = data.map(country => {
-        const { name, region, capital, population, flags } = country
-        return { name, region, capital, population, flags }
+        const { name, region, capital, population, flags, cca3 } = country
+        return { name, region, capital, population, flags, cca3 }
     })
 
     return {

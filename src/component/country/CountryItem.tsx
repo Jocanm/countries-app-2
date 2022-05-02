@@ -11,20 +11,20 @@ interface Props {
 
 export const CountryItem: FC<Props> = ({ country }) => {
 
-    const { name, population, capital, flags, region } = country
+    const { name, population, capital, flags, region, cca3 } = country
 
     return (
         <ST.CountryItemStyles>
-            <Image
-                src={flags?.svg || "/assets/no-image.png"}
-                alt={name.common}
-                width={400}
-                height={250}
-            />
+            <Link href={`/name/${cca3}`} passHref>
+                <Image
+                    src={flags?.svg || "/assets/no-image.png"}
+                    alt={name.common}
+                    width={400}
+                    height={250}
+                />
+            </Link>
             <ST.CountryInfoStyles>
-                <Link href={`/name/${name.common}`} passHref>
-                    <h2>{name.common}</h2>
-                </Link>
+                <h2>{name.common}</h2>
                 <div>
                     <p>
                         Population:

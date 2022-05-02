@@ -10,5 +10,8 @@ export const ContentWrapperStyles = styled.main`
 export const MainWrapper = styled.main`
 
     padding: ${props => props.theme.px} 0;
+    @media (max-width: ${props => props.theme.breakPoints.sm}) {
+        padding: 30px 0;
+    }
 
 `

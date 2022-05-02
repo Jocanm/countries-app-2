@@ -1,2 +1,5 @@
 export * from './CountriesList'
 export * from './CountryItem'
+export * from './CountryDetails'
+export * from './InformationCom'
+export * from './BorderList'

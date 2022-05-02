@@ -3,6 +3,9 @@ import { CountryProps } from '../../interfaces'
 import { GetStaticPaths, NextPage, GetStaticProps } from 'next';
 import { MainLayout } from '../../layout';
 import { countriesApi } from '../../api';
+import * as ST from '../../styles/components';
+import { CountryDetails } from '../../component/country';
+import Image from 'next/image';
 
 interface Props {
     country: CountryProps
@@ -13,9 +16,20 @@ const CountryPage: NextPage<Props> = ({ country }) => {
     const { name, population, capital, flags, region, borders } = country
 
     return (
-        <MainLayout >
-            <h1>{name.common}</h1>
-            {borders?.join(', ')}
+        <MainLayout
+            title={name.common}
+        >
+            <ST.DetailsViewWrapper>
+                <Image
+                    src={flags.svg || './assets/images/no-image.png'}
+                    alt={name.common}
+                    width={700}
+                    height={400}
+                />
+                <CountryDetails
+                    country={country}
+                />
+            </ST.DetailsViewWrapper>
         </MainLayout>
     )
 }
@@ -24,10 +38,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     const { data } = await countriesApi.get<CountryProps[]>("/region/america")
 
-    const paths = data.map(({ name }) => (
+    const paths = data.map(({ cca3 }) => (
         {
             params: {
-                name: name.common
+                name: cca3
             }
         }
     ))
@@ -42,7 +56,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     const { name } = params as { name: string }
 
-    const { data } = await countriesApi.get<CountryProps[]>(`/name/${name}`)
+    const { data } = await countriesApi.get<CountryProps[]>(`/alpha/${name}`)
 
     const countries = data.map(country => {
         const { name, region, capital, population, flags, subregion, tld, currencies, languages, borders } = country
@@ -57,7 +71,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     for (const border of borders || []) {
         const { data } = await countriesApi.get<CountryProps[]>(`/alpha/${border}`)
         const { name } = data[0]
-        newBorders.push(name.common)
+        newBorders.push(`${name.common}/${border}`)
     }
 
     const newCountry = {
