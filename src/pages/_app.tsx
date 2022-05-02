@@ -1,22 +1,24 @@
 import type { AppProps } from 'next/app'
-import { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { DarkMode } from '../context'
-import { getLocalTheme } from '../helpers'
 import { useGetLocalTheme } from '../hooks'
 import { GlobalStyles } from '../styles/globals'
-import { darkTheme, lightTheme } from '../styles/themes'
+import { darkTheme, globalTheme, lightTheme } from '../styles/themes'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-    const { isDarkMode, toggleDarkMode } = useGetLocalTheme()
+    const { theme, toggleTheme } = useGetLocalTheme()
 
     return (
         <DarkMode.Provider
-            value={{ isDarkMode, toggleDarkMode }}
+            value={{ theme, toggleTheme }}
         >
             <ThemeProvider
-                theme={isDarkMode ? darkTheme : lightTheme}
+                theme={
+                    theme === "dark"
+                    ? {...darkTheme,...globalTheme}
+                    : {...lightTheme,...globalTheme}
+                }
             >
                 <Component {...pageProps} />
                 <GlobalStyles />

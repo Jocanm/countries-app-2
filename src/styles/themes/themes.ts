@@ -20,3 +20,7 @@ export const darkTheme = {
     text:'hsl(0, 0%, 100%)',
     element:'hsl(209, 23%, 22%)'
 }
+
+export const globalTheme = {
+    px:'4rem'
+}

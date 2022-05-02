@@ -1,17 +1,24 @@
-import { useState } from "react"
-import { getLocalTheme } from "../helpers"
+import { useEffect, useState } from "react"
+import { themeType } from "../interfaces"
 
 export const useGetLocalTheme = () => {
-    const [isDarkMode, setIsDarkMode] = useState(getLocalTheme())
 
-    const toggleDarkMode = () => {
-        localStorage.setItem('isDarkMode', JSON.stringify(!isDarkMode))
-        setIsDarkMode(!isDarkMode)
+    const [theme, setTheme] = useState<themeType>('light')
+
+    const toggleTheme = () => {
+        const toSet = theme === "dark" ? "light" : "dark"
+        localStorage.setItem("theme", toSet)
+        setTheme(toSet)
     }
 
+    useEffect(()=>{
+        const localTheme = localStorage.getItem("theme");
+        localTheme && setTheme(localTheme as themeType)
+    },[])
+
     return {
-        isDarkMode,
-        toggleDarkMode
+        theme,
+        toggleTheme
     }
 
 }
