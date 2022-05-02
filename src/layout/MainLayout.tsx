@@ -1,5 +1,6 @@
-import React, { FC } from 'react'
 import Head from 'next/head';
+import { FC } from 'react';
+import { Navbar } from '../component/ui';
 import * as ST from '../styles/components';
 
 interface Props {
@@ -9,13 +10,14 @@ interface Props {
 
 export const MainLayout: FC<Props> = ({ children, title }) => {
     return (
-        <>
+        <ST.ContentWrapperStyles>
             <Head>
                 <title>{title}</title>
             </Head>
-            <ST.ContentWrapperStyles>
+            <Navbar />
+            <main>
                 {children}
-            </ST.ContentWrapperStyles>
-        </>
+            </main>
+        </ST.ContentWrapperStyles>
     )
 }

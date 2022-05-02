@@ -7,11 +7,6 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-text-size-adjust: 100%; /* 2 */
     }
 
-    body {
-    margin: 0;
-    font-family: 'Nunito Sans', sans-serif;
-    }
-
     main {
     display: block;
     }
@@ -206,6 +201,14 @@ export const GlobalStyles = createGlobalStyle`
     }
     :before, *:after {
         box-sizing: inherit; 
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Nunito Sans', sans-serif;
+        transition: all 0.5s linear;
+        background-color: ${props => ""};
+        color: ${props => ""};
     }
 
 `

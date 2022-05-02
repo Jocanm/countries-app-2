@@ -5,7 +5,7 @@ import { MainLayout } from '../layout'
 const HomePage: NextPage = () => {
     return (
         <MainLayout title="Countries">
-            <div>HomePage</div>
+            <></>
         </MainLayout>
     )
 }
