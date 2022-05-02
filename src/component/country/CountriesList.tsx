@@ -1,6 +1,8 @@
 import React from 'react'
 import { CountryProps } from '../../interfaces'
 import { FC } from 'react';
+import { CountryItem } from './CountryItem';
+import * as ST from '../../styles/components';
 
 interface Props {
     countries: CountryProps[]
@@ -8,14 +10,15 @@ interface Props {
 
 export const CountriesList: FC<Props> = ({ countries }) => {
     return (
-        <ul>
+        <ST.CountriesListStyles>
             {
                 countries.map(country => (
-                    <li key={country.name.common}>
-                        {country.name.common}
-                    </li>
+                    <CountryItem
+                        key={country.name.common}
+                        country={country}
+                    />
                 ))
             }
-        </ul>
+        </ST.CountriesListStyles>
     )
 }

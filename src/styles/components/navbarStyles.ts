@@ -6,10 +6,9 @@ export const CustomNavbar = styled.nav`
 
     padding: 2rem ${props => props.theme.px};
     background: ${props => props.theme.element};
+    box-shadow: 0 .1px .4rem rgba(0,0,0,0.15);
 
     ${FlexBetween}
-
-    box-shadow: 0 .1px .4rem rgba(0,0,0,0.15);
 
     section{
         display:flex;
