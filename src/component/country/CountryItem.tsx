@@ -23,9 +23,14 @@ export const CountryItem: FC<Props> = ({ country }) => {
             <ST.CountryInfoStyles>
                 <h2>{name.common}</h2>
                 <div>
-                    <p>Population: <span>{population}</span></p>
+                    <p>
+                        Population: 
+                        <span> {new Intl.NumberFormat('de-DE').format(population)}</span>
+                    </p>
                     <p>Region: <span>{region}</span></p>
-                    { capital && <p>Capital: <span>{capital}</span></p> }
+                    {
+                        capital && <p>Capital: <span>{capital}</span></p>
+                    }
                 </div>
             </ST.CountryInfoStyles>
         </ST.CountryItemStyles>

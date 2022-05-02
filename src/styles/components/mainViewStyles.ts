@@ -18,12 +18,17 @@ export const CountriesListStyles = styled.ul`
         grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     }
 
+    @media (max-width: ${props => props.theme.breakPoints.md}) {
+        grid-template-columns: 1fr;
+    }
+
     gap:40px;
 
 `
 
 export const CountryItemStyles = styled.li`
 
+    cursor: pointer;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -33,10 +38,15 @@ export const CountryItemStyles = styled.li`
     -webkit-box-shadow: 7px 5px 24px -10px rgba(0,0,0,0.50);
     -moz-box-shadow: 7px 5px 24px -10px rgba(0,0,0,0.50);
     box-shadow: 7px 5px 24px -10px rgba(0,0,0,0.50);
+    transition: transform 0.3s ease;
 
     img{
         border-radius:5px 5px 0 0;
         object-fit:cover;
+    }
+
+    :hover{
+        transform: translateY(-5px);
     }
 
 
