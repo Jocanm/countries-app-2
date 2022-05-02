@@ -35,9 +35,9 @@ export const CountryItemStyles = styled.li`
     border-radius:5px;
 
     background-color: ${props => props.theme.element};
-    -webkit-box-shadow: 7px 5px 24px -10px rgba(0,0,0,0.50);
-    -moz-box-shadow: 7px 5px 24px -10px rgba(0,0,0,0.50);
-    box-shadow: 7px 5px 24px -10px rgba(0,0,0,0.50);
+    -webkit-box-shadow: 7px 5px 10px -10px rgba(0,0,0,0.50);
+    -moz-box-shadow: 7px 5px 10px -10px rgba(0,0,0,0.50);
+    box-shadow: 7px 5px 10px -10px rgba(0,0,0,0.50);
     transition: transform 0.3s ease;
 
     img{
@@ -48,7 +48,6 @@ export const CountryItemStyles = styled.li`
     :hover{
         transform: translateY(-5px);
     }
-
 
 `
 
