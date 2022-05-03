@@ -37,7 +37,7 @@ const CountryPage: NextPage<Props> = ({ country }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-    const { data } = await countriesApi.get<CountryProps[]>("/region/america")
+    const { data } = await countriesApi.get<CountryProps[]>("/all")
 
     const paths = data.map(({ cca3 }) => (
         {

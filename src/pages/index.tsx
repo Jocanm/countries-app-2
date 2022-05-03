@@ -24,13 +24,13 @@ const HomePage: NextPage<Props> = ({ countries }) => {
     )
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async () => {
 
-    const { data } = await countriesApi.get<CountryProps[]>("/region/america")
+    const { data } = await countriesApi.get<CountryProps[]>("/all")
 
     const countries = data.map(country => {
         const { name, region, capital, population, flags, cca3 } = country
-        return { name, region, capital, population, flags, cca3 }
+        return { name, region, population, flags, cca3, capital: capital || null }
     })
 
     return {

@@ -36,7 +36,7 @@ export const CountryDetails: FC<Props> = ({ country }) => {
                     />
                     {capital && <InformationCom
                         title="Capital: "
-                        description={capital[0]}
+                        description={capital as unknown as string}
                     />}
                 </div>
                 <div>

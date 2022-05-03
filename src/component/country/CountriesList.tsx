@@ -1,18 +1,42 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { CountryProps } from '../../interfaces'
 import { FC } from 'react';
 import { CountryItem } from './CountryItem';
 import * as ST from '../../styles/components';
+import { useFilterContext } from '../../context';
 
 interface Props {
     countries: CountryProps[]
 }
 
 export const CountriesList: FC<Props> = ({ countries }) => {
+
+    const { name, region } = useFilterContext()
+    console.log("first")
+
+    const filteredCountries = useMemo(() => {
+        return countries.filter(country => {
+
+            if (!name && !region) {
+                return true
+
+            } else if (name && !region) {
+                return country.name.common.toLowerCase().includes(name.toLowerCase())
+
+            } else if (region && !name) {
+                return country.region === region
+
+            } else {
+                return country.name.common.toLowerCase().includes(name.toLowerCase()) && country.region === region
+            }
+
+        })
+    }, [countries, name, region])
+
     return (
         <ST.CountriesListStyles>
             {
-                countries.map(country => (
+                filteredCountries.map(country => (
                     <CountryItem
                         key={country.name.common}
                         country={country}
