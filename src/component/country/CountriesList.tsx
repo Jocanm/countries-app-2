@@ -12,7 +12,6 @@ interface Props {
 export const CountriesList: FC<Props> = ({ countries }) => {
 
     const { name, region } = useFilterContext()
-    console.log("first")
 
     const filteredCountries = useMemo(() => {
         return countries.filter(country => {

@@ -80,8 +80,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         borders: newBorders
     }
 
-    console.log(newCountry)
-
     return {
         props: {
             country: newCountry
