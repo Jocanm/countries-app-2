@@ -15,7 +15,7 @@ export const CountryItem: FC<Props> = ({ country }) => {
 
     return (
         <ST.CountryItemStyles>
-            <Link href={`/name/${cca3}`} passHref>
+            <Link href={`/name/${name.common}`} passHref>
                 <Image
                     src={flags?.svg || "/assets/no-image.png"}
                     alt={name.common}
