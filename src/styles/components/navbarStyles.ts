@@ -36,8 +36,8 @@ export const CustomNavbar = styled.nav`
             linear-gradient(
                 transparent 0%,
                 transparent 90%,
-                #fff 90%,
-                #fff 100%
+                ${(props)=>props.theme.text} 90%,
+                ${(props)=>props.theme.text} 100%
             );
         background-repeat: no-repeat;
         background-size: 0% 100%;
