@@ -55,36 +55,42 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 
-    const { name } = params as { name: string }
+        const { name } = params as { name: string }
 
-    const { data } = await countriesApi.get<CountryProps[]>(`/name/${name}`)
+        console.log(name)
+        
+        //Esto esta fallando
+        const { data } = await countriesApi.get<CountryProps[]>(`/name/${name}`)
+        
+        const countries = data.map(country => {
+            const { name, region, capital, population, flags, subregion, tld, currencies, languages, borders } = country
+            const countryclean = { name, region, capital, population, flags, tld, currencies, subregion, languages, borders }
+            console.log(countryclean)
+            return countryclean
+        })
 
-    const countries = data.map(country => {
-        const { name, region, capital, population, flags, subregion, tld, currencies, languages, borders } = country
-        return { name, region, capital, population, flags, tld, currencies, subregion, languages, borders }
-    })
+        const country = countries[0]
 
-    const country = countries[0]
+        const { borders } = country
+        const newBorders: string[] = []
 
-    const { borders } = country
-    const newBorders: string[] = []
-
-    for (const border of borders || []) {
-        const { data } = await countriesApi.get<CountryProps[]>(`/alpha/${border}`)
-        const { name } = data[0]
-        newBorders.push(`${name.common}/${border}`)
-    }
-
-    const newCountry = {
-        ...country,
-        borders: newBorders
-    }
-
-    return {
-        props: {
-            country: newCountry
+        for (const border of borders || []) {
+            const { data } = await countriesApi.get<CountryProps[]>(`/alpha/${border}`)
+            const { name } = data[0]
+            newBorders.push(`${name.common}/${border}`)
         }
-    }
+
+        const newCountry = {
+            ...country,
+            borders: newBorders
+            // borders: []
+        }
+
+        return {
+            props: {
+                country: newCountry
+            }
+        }
 }
 
 export default CountryPage
