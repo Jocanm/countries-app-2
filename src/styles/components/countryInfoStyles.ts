@@ -4,14 +4,10 @@ import styled from 'styled-components';
 export const DetailsViewWrapper = styled.div`
 
     gap:50px;
-    padding: 0 ${props => props.theme.px};
     display:grid;
     grid-template-columns: 1.2fr 1fr;
+    position:relative;
 
-    @media (min-width: ${props => props.theme.breakPoints['2xl']}) {
-        padding: 2rem 10rem;
-    }
-    
     @media (min-width: ${props => props.theme.breakPoints['3xl']}) {
         zoom:107%;
     }
@@ -20,17 +16,12 @@ export const DetailsViewWrapper = styled.div`
         grid-template-columns: 1fr;
     }
 
-    @media (max-width: ${props => props.theme.breakPoints.sm}) {
-        padding: 0 1.6rem;
-    }
-
     img{
         object-position:0%;
         object-fit: contain;
         
         @media (max-width: ${props => props.theme.breakPoints.sm}) {
             box-shadow: 0 .1px .4rem rgba(0,0,0,0.15);
-            object-fit: cover;
         }
     }
 
@@ -65,9 +56,7 @@ export const CountrDetailsContainer = styled.div`
             background-color: ${props => props.theme.element};
             padding:5px 10px;
             border-radius:5px;
-            -webkit-box-shadow: 7px 5px 10px -10px rgba(0,0,0,0.50);
-            -moz-box-shadow: 7px 5px 10px -10px rgba(0,0,0,0.50);
-            box-shadow: 7px 5px 10px -10px rgba(0,0,0,0.50);
+            box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.50);
 
             :hover{
                 transform: translateY(-2px);
@@ -100,6 +89,35 @@ export const CountryInformation = styled.div`
         display: flex;
         flex-direction: column;
         gap:20px;
+    }
+
+`
+
+export const BackButton = styled.button`
+
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+
+    background-color: ${props => props.theme.element};
+    -webkit-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.50);
+    -moz-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.50);
+
+    box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.50);
+
+    
+    color: ${props => props.theme.text};
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width:100px;
+
+    position:relative;
+    bottom:30px;
+
+    @media (max-width: ${props => props.theme.breakPoints.sm}) {
+        bottom:0;
     }
 
 `
