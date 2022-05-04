@@ -17,10 +17,10 @@ const CountryPage: NextPage<Props> = ({ country }) => {
 
     const { name, flags } = country
 
-    const {back} = useRouter()
+    const {push} = useRouter()
 
     const handleBack = () => {
-        back()
+        push("/")
     }
 
     return (
