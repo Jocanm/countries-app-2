@@ -17,7 +17,7 @@ const CountryPage: NextPage<Props> = ({ country }) => {
 
     const { name, flags } = country
 
-    const {push} = useRouter()
+    const { push } = useRouter()
 
     const handleBack = () => {
         push("/")
@@ -30,7 +30,7 @@ const CountryPage: NextPage<Props> = ({ country }) => {
         >
             <div className='details-max-container'>
                 <ST.BackButton onClick={handleBack}>
-                    <BsArrowLeft/>
+                    <BsArrowLeft />
                     <span>Back</span>
                 </ST.BackButton>
                 <ST.DetailsViewWrapper>
@@ -107,7 +107,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
         props: {
             country: newCountry
-        }
+        },
+        revalidate: 60
     }
 }
 
