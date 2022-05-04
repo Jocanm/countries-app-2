@@ -26,7 +26,9 @@ const HomePage: NextPage<Props> = ({ countries }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const { data } = await countriesApi.get<CountryProps[]>("/all")
+    // const { data } = await countriesApi.get<CountryProps[]>("/all")
+    const res = await fetch('https://restcountries.com/v3.1/all')
+    const data = await res.json() as CountryProps[]
 
     const countries = data.map(country => {
         const { name, region, capital, population, flags, cca3 } = country

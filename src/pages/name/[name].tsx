@@ -39,10 +39,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     const { data } = await countriesApi.get<CountryProps[]>("/all")
 
-    const paths = data.map(({ name }) => (
+    const paths = data.map(({ cca3 }) => (
         {
             params: {
-                name: name.common
+                name: cca3
             }
         }
     ))
@@ -56,16 +56,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 
         const { name } = params as { name: string }
-
-        console.log(name)
         
-        //Esto esta fallando
-        const { data } = await countriesApi.get<CountryProps[]>(`/name/${name}`)
+        const { data } = await countriesApi.get<CountryProps[]>(`/alpha/${name}`)
         
         const countries = data.map(country => {
             const { name, region, capital, population, flags, subregion, tld, currencies, languages, borders } = country
-            const countryclean = { name, region, capital, population, flags, tld, currencies, subregion, languages, borders }
-            console.log(countryclean)
+            const countryclean = {
+                name, region, population, flags,
+                currencies: currencies || null,
+                capital: capital || null,
+                subregion: subregion || null,
+                tld: tld || null,
+                languages: languages || null,
+                borders: borders || null
+            }
             return countryclean
         })
 
