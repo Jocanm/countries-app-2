@@ -206,13 +206,8 @@ export const GlobalStyles = createGlobalStyle`
     body {
         margin: 0;
         font-family: 'Nunito Sans', sans-serif;
-        /* transition: all 30ms linear; */
         background-color: ${props => props.theme.body};
         color: ${props => props.theme.text};
-
-        /* *{
-            transition: all 30ms linear;
-        } */
     }
 
     input,select{
