@@ -38,6 +38,12 @@ export const InputSectionStyled = styled.section`
         padding-left:80px;
         color: ${props => props.theme.input};
         width:100%;
+
+        @media (max-width: ${props => props.theme.breakPoints.sm}) {
+            padding-left:40px;
+            width:auto;
+        }
+
         ::placeholder{
             color: ${props => props.theme.input};
         }
@@ -46,6 +52,9 @@ export const InputSectionStyled = styled.section`
     svg{
         top:20px;
         left:30px;
+        @media (max-width: ${props => props.theme.breakPoints.sm}) {
+            left:15px;
+        }
     }
 
 `

@@ -45,6 +45,10 @@ export const CustomNavbar = styled.nav`
 
         transition: background-size 500ms;
 
+        @media (max-width: ${props => props.theme.breakPoints.sm}) {
+            font-size:1rem;
+        }
+
         :hover{
             background-size: 100% 100%;
             background-position-x: left;
